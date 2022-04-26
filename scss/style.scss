@@ -8,7 +8,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: v.$font-fam;
 }
 /*
   2. Remove default margin
@@ -80,6 +80,7 @@ header {
   display: flex;
   align-items: center;
   margin: 0 auto;
+  padding-top: 10px;
 
   nav {
     position: relative;
@@ -93,16 +94,10 @@ header {
     ul {
       list-style-type: none;
       display: flex;
-      // border: 1px solid red;
 
       .nav-link {
         position: relative;
         margin-right: 25px;
-        // background-color: red;
-
-        &:hover > .dropdown-links {
-          display: flex;
-        }
 
         span {
           vertical-align: middle;
@@ -128,10 +123,6 @@ header {
           &:hover .arrow-down {
             display: none;
           }
-
-          // &:hover ~ .dropdown-links {
-          //   display: flex;
-          // }
         }
 
         span > img {
@@ -151,6 +142,10 @@ header {
           border-radius: 5px;
           width: max-content;
           display: none;
+
+          &.dropdown-active {
+            display: flex;
+          }
 
           .dropdown-link {
             margin-bottom: 7px;
@@ -193,7 +188,7 @@ header {
         &.btn {
           &.btn-reg {
             border: 1px solid v.$color-medium-gray;
-            border-radius: 8px;
+            border-radius: 10px;
             margin-right: 0;
 
             &:hover {
@@ -202,6 +197,76 @@ header {
           }
         }
       }
+    }
+  }
+}
+
+// The hero section style
+.hero {
+  height: 70vh;
+  width: 80vw;
+  margin: 10vh auto 0;
+  display: flex;
+
+  &-text {
+    width: 50%;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h1 {
+      font-size: 3.8rem;
+      color: v.$color-black;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 30px;
+      margin-top: 35px;
+    }
+    p {
+      font-size: 0.85rem;
+      color: v.$color-medium-gray;
+      font-weight: v.$font-w-500;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .cta {
+      text-decoration: none;
+      background-color: v.$color-black;
+      padding: 10px 25px;
+      border-radius: 10px;
+      color: v.$color-white;
+      display: inline-block;
+      width: max-content;
+      font-size: 0.85rem;
+      margin-bottom: 90px;
+      border: 1px solid v.$color-black;
+
+      &:hover {
+        border: 1px solid v.$color-black;
+        background-color: transparent;
+        color: v.$color-black;
+        font-weight: v.$font-w-700;
+      }
+    }
+
+    .companies {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  &-image {
+    width: 50%;
+    align-self: stretch;
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
   }
 }

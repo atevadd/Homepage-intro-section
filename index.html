@@ -10,15 +10,19 @@
     <title>Frontend Mentor | Intro section with dropdown navigation</title>
 
     <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
   </head>
   <body>
     <main>
       <header>
-        <h1>Snap</h1>
+        <h1>snap</h1>
         <!-- Navigation links -->
         <nav class="nav-bar">
           <ul>
-            <li class="nav-link">
+            <li class="nav-link dropdown">
               <span
                 >Features
                 <img src="/images/icon-arrow-down.svg" alt="" class="arrow-down" />
@@ -39,7 +43,7 @@
                 </li>
               </ul>
             </li>
-            <li class="nav-link">
+            <li class="nav-link dropdown">
               <span
                 >Company
                 <img src="/images/icon-arrow-down.svg" alt="" class="arrow-down" />
@@ -61,6 +65,49 @@
           </ul>
         </nav>
       </header>
+
+      <!-- The hero section -->
+      <section class="hero">
+        <div class="hero-text">
+          <h1>
+            Make <br />
+            remote work
+          </h1>
+          <p>
+            Get your team in sync, no matter your location. <br />
+            Streamline processes, create team rituals, and <br />
+            watch productivity soar.
+          </p>
+          <a href="#" class="cta">Learn more</a>
+
+          <div class="companies">
+            <img src="/images/client-databiz.svg" alt="company 1" />
+            <img src="/images/client-audiophile.svg" alt="company 2" />
+            <img src="/images/client-meet.svg" alt="company 3" />
+            <img src="/images/client-maker.svg" alt="company 4" />
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="/images/image-hero-desktop.png" alt="hero image" />
+        </div>
+      </section>
     </main>
+
+    <script>
+      const dropdowns = Array.from(document.getElementsByClassName("dropdown"));
+
+      // for (let i = 0; i < 2; i++) {
+      dropdowns[0].addEventListener("click", () => {
+        dropdowns[1].lastElementChild.classList.remove("dropdown-active");
+        dropdowns[0].lastElementChild.classList.toggle("dropdown-active");
+      });
+      dropdowns[1].addEventListener("click", () => {
+        dropdowns[0].lastElementChild.classList.remove("dropdown-active");
+        dropdowns[1].lastElementChild.classList.toggle("dropdown-active");
+      });
+      // }
+
+      console.log(dropdowns);
+    </script>
   </body>
 </html>
